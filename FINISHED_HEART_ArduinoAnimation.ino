@@ -15,7 +15,6 @@ int beatInterval = 900;
 int beatStage = 0;
 int heartState = 0;   // 0=tiny, 1=medium, 2=giant
 
-// ---------------- HEART FRAMES ----------------
 
 // TINY rest
 byte tinyRest[8][12] = {
@@ -155,11 +154,11 @@ void updateHeartbeat(unsigned long now) {
   switch (beatStage) {
     case 0:
       if (now - lastBeatEvent >= (unsigned long)beatInterval) {
-        drawHeart(true);   // first beat
+        drawHeart(true);   
         lastBeatEvent = now;
         beatStage = 1;
       } else {
-        drawHeart(false);  // resting frame
+        drawHeart(false);  
       }
       break;
 
@@ -173,7 +172,7 @@ void updateHeartbeat(unsigned long now) {
 
     case 2:
       if (now - lastBeatEvent >= 110) {
-        drawHeart(true);   // second beat
+        drawHeart(true);  
         lastBeatEvent = now;
         beatStage = 3;
       }
